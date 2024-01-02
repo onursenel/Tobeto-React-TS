@@ -1,4 +1,4 @@
-import { Form, Formik } from 'formik'
+import { Field, Form, Formik } from 'formik'
 import React from 'react'
 
 type Props = {};
@@ -7,11 +7,11 @@ type Props = {};
 const AddProduct = (props: Props) => {
     //initialValues => Formumuzun başlangıç değeri
 
-    const initialValues ={
-        title : "",
-        description : "",
-        price : 0,
-        stock : 0,
+    const initialValues = {
+        title: "",
+        description: "",
+        price: 0,
+        stock: 0,
     }
 
 
@@ -23,29 +23,29 @@ const AddProduct = (props: Props) => {
                 <Form>
                     <div className="mb-3">
                         <label className="form-label">Ürün Adı</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                        />
+                        <Field name="title" type="text" className="form-control" />
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Ürün açıklaması</label>
-                        <input
+                        <Field
+                            name="description"
                             type="text"
                             className="form-control"
                         />
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Ürün Fiyatı</label>
-                        <input
-                            type="text"
+                        <Field
+                            name='price'
+                            type="number"
                             className="form-control"
                         />
                     </div>
                     <div className="mb-3">
                         <label className="form-label">Ürün Stok</label>
-                        <input
-                            type="text"
+                        <Field
+                            name="stock"
+                            type="number"
                             className="form-control"
                         />
                     </div>
