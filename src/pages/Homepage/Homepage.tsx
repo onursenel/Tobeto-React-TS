@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { GetAllProductsModels } from "../../models/responses/GetAllProductsModels";
+import { ProductModel } from "../../models/responses/ProductModel";
 
 
 type Props = {}
 
 const Homepage = (props: Props) => {
+    const [products, setProducts] = useState<ProductModel[]>([])
 
     useEffect(() => {
       
@@ -19,8 +21,9 @@ const Homepage = (props: Props) => {
     const fetchProducts= () => {
         //axios
         axios.get<GetAllProductsModels>("https://dummyjson.com/products").then(response => {
-            console.log(response.data.products);
+            setProducts(response.data.products)
         })
+        
     }
 
 
@@ -28,9 +31,7 @@ const Homepage = (props: Props) => {
   return (
     <div className="container">
         <div className="row">
-            <div className="col-3">
-                
-            </div>
+            {products.map(product => <div key={product.id} className="col-3">1</div>)}
         </div>
     </div>
   )
