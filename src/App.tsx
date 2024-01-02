@@ -10,7 +10,7 @@ function App():ReactElement {
   return (<BrowserRouter>
   <Routes>
     <Route path="/" element={<Homepage></Homepage>}></Route>
-    <Route path="/product-detail" element={<ProductDetail></ProductDetail>}></Route>
+    <Route path="/product-detail/:id" element={<ProductDetail></ProductDetail>}></Route>
   </Routes>
   </BrowserRouter>
 
