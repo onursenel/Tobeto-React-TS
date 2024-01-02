@@ -33,11 +33,10 @@ const AddProduct = (props: Props) => {
                 validationSchema={validationSchema}
             >
                 <Form>
-                    <FormikInput name="title" label="Ürün Adı"/>
+                    <FormikInput name="title" label="Ürün Adı" placeHolder="Ürün Adı"/>
                     <FormikInput name="description" label="Ürün açıklaması"/>
-                    <FormikInput name="price" label="Ürün Fiyatı"/>
-                    <FormikInput name="stock" label="Ürün stok"/>
-                
+                    <FormikInput type="number" name="price" label="Ürün Fiyatı"/>
+                    <FormikInput type="number" name="stock" label="Ürün stok"/>
                     <button type="submit" className="btn btn-primary">
                         kaydet
                     </button>
