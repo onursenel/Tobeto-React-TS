@@ -38,7 +38,7 @@ const Homepage = (props: Props) => {
   return (
     <div className="container">
         <div className="row">
-            {products.map(product => <div key={product.id} className="col-2">
+            {products.map(product => <div key={product.id} className="col-3">
                 <ProductCard product={product} />
             </div>)}
         </div>
