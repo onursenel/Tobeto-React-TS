@@ -16,6 +16,11 @@ const Homepage = (props: Props) => {
     fetchProducts();
   
     }, [])
+
+    //service kullanımı
+    //1- Birden fazla noktada kullanılabilir.
+    //2- sorumlulugun UI dosyası üzerinden kalkması
+    //3-Ortak bir noktadan yönetebilmek için
     
 
 
