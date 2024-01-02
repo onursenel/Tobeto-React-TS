@@ -1,45 +1,61 @@
+import { Form, Formik } from 'formik'
 import React from 'react'
 
-type Props = {}
+type Props = {};
+
 
 const AddProduct = (props: Props) => {
-  return (
-    <div className="container mt-5">
-    <form>
-        <div className="mb-3">
-            <label className="form-label">Email address</label>
-            <input
-                type="email"
-                className="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-            />
-            <div id="emailHelp" className="form-text">
-                We'll never share your email with anyone else.
-            </div>
+    //initialValues => Formumuzun başlangıç değeri
+
+    const initialValues ={
+        title : "",
+        description : "",
+        price : 0,
+        stock : 0,
+    }
+
+
+    return (
+        <div className="container mt-5">
+            <Formik initialValues={initialValues} onSubmit={values => {
+                console.log(values);
+            }}>
+                <Form>
+                    <div className="mb-3">
+                        <label className="form-label">Ürün Adı</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Ürün açıklaması</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Ürün Fiyatı</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">Ürün Stok</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        kaydet
+                    </button>
+                </Form>
+            </Formik>
         </div>
-        <div className="mb-3">
-            <label className="form-label">Password</label>
-            <input
-                type="password"
-                className="form-control"
-                id="exampleInputPassword1"
-            />
-        </div>
-        <div className="mb-3 form-check">
-            <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-            />
-            <label className="form-check-label">Check me out</label>
-        </div>
-        <button type="submit" className="btn btn-primary">
-            Submit
-        </button>
-    </form>
-</div>
-  )
+    )
 }
 
 
