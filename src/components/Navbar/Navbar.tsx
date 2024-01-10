@@ -1,17 +1,12 @@
 
 import { useContext } from 'react'
 import { Link } from 'react-router-dom'
-import { AuthContext } from '../../contexts/AuthContext';
-import { useSelector } from 'react-redux';
 
 type Props = {}
 
 const Navbar = (props: Props) => {
 	//AuthContext => createContext 
-	const authContext:any = useContext(AuthContext); 
-	
-	const cartState = useSelector((state:any) => state.cart);
-	console.log(cartState);
+
 
   return (
     <nav
@@ -45,15 +40,15 @@ const Navbar = (props: Props) => {
 								Ürün ekle
 							</Link>
 						</li>
-						{!authContext.isAuthenticated &&<li className="nav-item">
+						<li className="nav-item">
 							<Link className="nav-link" to={"/login"}> 
 								Giriş Yap
 							</Link>
-						</li>}
+						</li>
 
 						<li className="nav-item">
 						<Link className="nav-link" to={""}> 
-						Sepetteki ürün toplamı : {cartState.cartItems.length}
+						Sepetteki ürün toplamı : 
 							</Link>
 							
 						</li>
