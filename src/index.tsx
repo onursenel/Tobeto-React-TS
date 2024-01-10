@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { Provider } from 'react-redux';
+import { store } from './store/configureStore';
 
 
 const root = ReactDOM.createRoot(
@@ -13,12 +14,13 @@ const root = ReactDOM.createRoot(
 );
 
 root.render(
-	
+	<Provider store={store}>
 		<AuthProvider>
 			<BrowserRouter>
 				<App />
 			</BrowserRouter>
-		</AuthProvider>,
-	
+		</AuthProvider>
+	</Provider>,
+
 );
 

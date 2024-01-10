@@ -1,12 +1,17 @@
 
 import { useContext } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { AuthContext } from '../../contexts/AuthContext'
 
 type Props = {}
 
 const Navbar = (props: Props) => {
-	//AuthContext => createContext 
+	const cartState = useSelector((state:any) => state.cart);
+	console.log(cartState);
+	
 
+	const authContext: any = useContext(AuthContext);
 
   return (
     <nav
@@ -48,7 +53,7 @@ const Navbar = (props: Props) => {
 
 						<li className="nav-item">
 						<Link className="nav-link" to={""}> 
-						Sepetteki ürün toplamı : 
+						Sepetteki ürün toplamı : {cartState.cartItems.length}
 							</Link>
 							
 						</li>
