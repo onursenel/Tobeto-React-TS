@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {}
 
 const Login = (props: Props) => {
+    const authContext : any = useContext(AuthContext);
+    const navigate = useNavigate();
+
   return (
     <div className="container mt-5">
 			<form>
@@ -40,6 +44,10 @@ const Login = (props: Props) => {
 				<button
 					className="btn btn-primary w-100 py-2"
 					type="button"
+                    onClick={() =>{
+                        authContext.setIsAuthenticated(true);
+                        navigate("/");
+                    }}
 				>
 					Sign in
 				</button>

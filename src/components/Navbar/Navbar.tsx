@@ -7,7 +7,7 @@ type Props = {}
 
 const Navbar = (props: Props) => {
 	//AuthContext => createContext 
-	const authContext = useContext(AuthContext); 
+	const authContext:any = useContext(AuthContext); 
 	console.log(authContext)
 
   return (
@@ -42,6 +42,11 @@ const Navbar = (props: Props) => {
 								Ürün ekle
 							</Link>
 						</li>
+						{!authContext.isAuthenticated &&<li className="nav-item">
+							<Link className="nav-link" to={"/login"}> 
+								Giriş Yap
+							</Link>
+						</li>}
 						
 					</ul>
 					<form className="d-flex" role="search">
