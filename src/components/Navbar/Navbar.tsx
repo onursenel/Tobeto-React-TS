@@ -50,6 +50,13 @@ const Navbar = (props: Props) => {
 								Giriş Yap
 							</Link>
 						</li>}
+
+						<li className="nav-item">
+						<Link className="nav-link" to={""}> 
+						Sepetteki ürün toplamı : {cartState.cartItems.length}
+							</Link>
+							
+						</li>
 						
 					</ul>
 					<form className="d-flex" role="search">
