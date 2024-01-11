@@ -9,9 +9,16 @@ interface CartItem{
     quantity : number;
 }
 
+
+const getInitialState = ()=> {
+    return {
+        cartItems : (JSON.parse(localStorage.getItem("cart")!) || []) as CartItem[],
+    }
+}
+
 const carSlice = createSlice({
     name : "cart",
-    initialState : {cartItems : [] as CartItem[]},
+    initialState : getInitialState(),
     reducers : {
         addToCart : (state,action) => {
             //immer
@@ -25,16 +32,19 @@ const carSlice = createSlice({
             }else {
                 state.cartItems.push({product : action.payload, quantity:1});
             }
+            localStorage.setItem("cart",JSON.stringify(state.cartItems))
 
 
            
         },
         removeFromCart : (state,action)=>{
             state.cartItems = state.cartItems.filter((i:any) => i.id !== action.payload.id);
+            localStorage.setItem("cart",JSON.stringify(state.cartItems))
 
         },
         clearCart : state => {
             state.cartItems = [];
+            localStorage.setItem("cart",JSON.stringify(state.cartItems))
 
         }
 

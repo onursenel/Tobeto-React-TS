@@ -1,5 +1,5 @@
 
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../contexts/AuthContext'
@@ -8,7 +8,18 @@ type Props = {}
 
 const Navbar = (props: Props) => {
 	const cartState = useSelector((state: any) => state.cart);
-	console.log(cartState)
+
+	useEffect(() => {
+	  localStorage.setItem("token","abc");
+	  localStorage.setItem("token","abc123"); //bir üstteki satırdaki kodun üzerine yazar 
+	  let user = localStorage.getItem("user")
+	  let userObj = JSON.parse(user!)//JSON.parse metinsel olan value obje olarak çevirir. JSON.stringify ise tersini yapar
+	  console.log(user)
+	  console.log(userObj)
+	  localStorage.removeItem("token")// key değerini vererek silme işlemi
+	  //localStorage.clear(); // tüm localStorage' ı silme işlemi
+	}, [])
+	
 
 
 	const authContext: any = useContext(AuthContext);
