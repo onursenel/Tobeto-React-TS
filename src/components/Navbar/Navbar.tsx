@@ -9,16 +9,16 @@ type Props = {}
 const Navbar = (props: Props) => {
 	const cartState = useSelector((state: any) => state.cart);
 
-	useEffect(() => {
-	  localStorage.setItem("token","abc");
-	  localStorage.setItem("token","abc123"); //bir üstteki satırdaki kodun üzerine yazar 
-	  let user = localStorage.getItem("user")
-	  let userObj = JSON.parse(user!)//JSON.parse metinsel olan value obje olarak çevirir. JSON.stringify ise tersini yapar
-	  console.log(user)
-	  console.log(userObj)
-	  localStorage.removeItem("token")// key değerini vererek silme işlemi
-	  //localStorage.clear(); // tüm localStorage' ı silme işlemi
-	}, [])
+	// useEffect(() => {
+	//   localStorage.setItem("token","abc");
+	//   localStorage.setItem("token","abc123"); //bir üstteki satırdaki kodun üzerine yazar 
+	//   let user = localStorage.getItem("user")
+	//   let userObj = JSON.parse(user!)//JSON.parse metinsel olan value obje olarak çevirir. JSON.stringify ise tersini yapar
+	//   console.log(user)
+	//   console.log(userObj)
+	//   localStorage.removeItem("token")// key değerini vererek silme işlemi
+	//   localStorage.clear(); // tüm localStorage' ı silme işlemi
+	// }, [])
 	
 
 
@@ -56,11 +56,13 @@ const Navbar = (props: Props) => {
 								Ürün ekle
 							</Link>
 						</li>
-						<li className="nav-item">
-							<Link className="nav-link" to={"/login"}>
-								Giriş Yap
-							</Link>
-						</li>
+						{!authContext.isAuthenticated && (
+							<li className="nav-item">
+								<Link className="nav-link" to={"/login"}>
+									Giriş Yap
+								</Link>
+							</li>
+						)}
 
 						<li className="nav-item">
 							<Link className="nav-link" to={""}>
