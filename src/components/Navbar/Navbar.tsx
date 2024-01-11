@@ -7,14 +7,14 @@ import { AuthContext } from '../../contexts/AuthContext'
 type Props = {}
 
 const Navbar = (props: Props) => {
-	const cartState = useSelector((state:any) => state.cart);
-	console.log(cartState);
-	
+	const cartState = useSelector((state: any) => state.cart);
+	console.log(cartState)
+
 
 	const authContext: any = useContext(AuthContext);
 
-  return (
-    <nav
+	return (
+		<nav
 			className="navbar bg-dark navbar-expand-lg bg-body-tertiary"
 			data-bs-theme="dark"
 		>
@@ -41,23 +41,23 @@ const Navbar = (props: Props) => {
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to={"/add-product"}> 
+							<Link className="nav-link" to={"/add-product"}>
 								Ürün ekle
 							</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to={"/login"}> 
+							<Link className="nav-link" to={"/login"}>
 								Giriş Yap
 							</Link>
 						</li>
 
 						<li className="nav-item">
-						<Link className="nav-link" to={""}> 
-						Sepetteki ürün toplamı : {cartState.cartItems.length}
+							<Link className="nav-link" to={""}>
+								Sepetteki ürün toplamı : {cartState.cartItems.length}
 							</Link>
-							
+
 						</li>
-						
+
 					</ul>
 					<form className="d-flex" role="search">
 						<input
@@ -73,7 +73,7 @@ const Navbar = (props: Props) => {
 				</div>
 			</div>
 		</nav>
-  )
+	)
 }
 
 export default Navbar

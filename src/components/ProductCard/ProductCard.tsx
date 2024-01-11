@@ -14,6 +14,7 @@ type Props = {
 // ! => Nullable alan içerisinden veri okurken null değilse kontrolü yapar.
 
 const ProductCard = (props: Props) => {
+    
 
     return (
         <div className="card">
