@@ -26,16 +26,16 @@ const productSlice = createSlice({
     reducers :{},
     extraReducers : builder => {
         builder.addCase(fetchProducts.pending,state => {
-            console.log("istek atılıyor...")
+            
             state.loading = "loading";
         });
         builder.addCase(fetchProducts.fulfilled,(state,action) => {
-            console.log("cevap geldi",action)
+            
             state.loading="loaded";
             state.products = action.payload;
         });
         builder.addCase(fetchProducts.rejected,state => {
-            console.log("hata geldi")
+            
             state.loading="error";
         });
     },
