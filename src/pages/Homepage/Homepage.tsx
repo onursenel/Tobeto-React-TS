@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import ProductCard from "../../components/ProductCard/ProductCard";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/slices/productSlice";
+import { AppDispatch } from "../../store/configureStore";
 
 
 
@@ -33,10 +34,10 @@ const Homepage = (props: Props) => {
 
     const productState = useSelector((state : any)=> state.product);
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
-      dispatch(fetchProducts() as any)
+      dispatch(fetchProducts())
     
     }, []);
     
