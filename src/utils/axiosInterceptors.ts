@@ -23,6 +23,14 @@ axiosInstance.interceptors.response.use ((response)=> {
 
     return response;
 },(error)=>{
+    if(error.data.status == 409){
+        alert(error.data.message);
+    }
+    if(error.data.type ="ValidationFailed"){
+        error.data.message.forEach((message:any) => alert(message))
+    }
+
+
     console.log(error);
 });
 
